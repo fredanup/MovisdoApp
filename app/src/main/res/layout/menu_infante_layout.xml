@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:clipToPadding="false"
+    android:fitsSystemWindows="true"
+    tools:context=".activity.InfanteActivity"
+    tools:openDrawer="start">
+
+    <!--Unión de enzabezado y estructura de menú-->
+    <!--Llamamos al encabezado y a la estructura del menú-->
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+
+        app:headerLayout="@layout/header"
+        app:itemIconTint="#FFB20C"
+        app:itemTextColor="@color/textDescription"
+        app:menu="@menu/main_menu"
+
+        />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+
+        <View
+            android:id="@+id/viewHeaderBackground"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_159sdp"
+            android:background="@color/redmuni"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </View>
+
+        <!--Incluímos toolbar-->
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+
+
+            app:cardBackgroundColor="@color/card_background"
+            app:cardCornerRadius="@dimen/_16sdp"
+
+            app:layout_constraintBottom_toBottomOf="@id/viewHeaderBackground"
+            app:layout_constraintTop_toBottomOf="@id/viewHeaderBackground"
+            >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_14sdp"
+
+                >
+
+                <LinearLayout
+                    android:id="@+id/layoutInfantes"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toStartOf="@+id/layoutRecienNacidos"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/search_bar">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/_28sdp"
+                        android:layout_height="@dimen/_28sdp"
+                        android:onClick="filterAll"
+                        android:src="@drawable/ic_infant" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:onClick="filterAll"
+                        android:text="Total"
+                        android:textColor="@color/secondary_Text"
+                        android:textSize="@dimen/_10ssp" />
+
+                    <TextView
+                        android:id="@+id/infanteCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:text=""
+                        android:textColor="@color/primary_text"
+                        android:textSize="@dimen/_16ssp" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layoutRecienNacidos"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toStartOf="@id/layoutMenorDe6Meses"
+                    app:layout_constraintStart_toEndOf="@id/layoutInfantes"
+                    app:layout_constraintTop_toBottomOf="@+id/search_bar">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/_28sdp"
+                        android:layout_height="@dimen/_28sdp"
+                        android:onClick="filterRecienNacido"
+                        android:src="@drawable/ic_recien_nacido" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:onClick="filterRecienNacido"
+                        android:text="Recién nacido"
+                        android:textColor="@color/secondary_Text"
+                        android:textSize="@dimen/_10ssp" />
+
+                    <TextView
+                        android:id="@+id/recienNacidoCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:text=""
+                        android:textColor="@color/primary_text"
+                        android:textSize="@dimen/_16ssp" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layoutMenorDe6Meses"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/layoutRecienNacidos"
+                    app:layout_constraintTop_toBottomOf="@+id/search_bar">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/_28sdp"
+                        android:layout_height="@dimen/_28sdp"
+                        android:onClick="filterMenorDe6Meses"
+                        android:src="@drawable/ic_menor_6_meses" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:gravity="center"
+                        android:onClick="filterMenorDe6Meses"
+                        android:text="Menor a 6 meses"
+                        android:textColor="@color/secondary_Text"
+                        android:textSize="@dimen/_10ssp" />
+
+                    <TextView
+                        android:id="@+id/menorDe6MesesCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:text=""
+                        android:textColor="@color/primary_text"
+                        android:textSize="@dimen/_16ssp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layoutDe6a11Meses"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toStartOf="@+id/layoutDe1a3años"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layoutInfantes">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/_28sdp"
+                        android:layout_height="@dimen/_28sdp"
+                        android:onClick="filterDe6a11Meses"
+                        android:src="@drawable/ic_baby_50" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:onClick="filterDe6a11Meses"
+                        android:text="De 6 a 11 meses"
+                        android:textColor="@color/secondary_Text"
+                        android:textSize="@dimen/_10ssp" />
+
+                    <TextView
+                        android:id="@+id/de6a11MesesCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:text=""
+                        android:textColor="@color/primary_text"
+                        android:textSize="@dimen/_16ssp" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layoutDe1a3años"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toStartOf="@id/layoutMenorDe6Meses"
+                    app:layout_constraintStart_toEndOf="@id/layoutDe6a11Meses"
+                    app:layout_constraintTop_toBottomOf="@+id/layoutRecienNacidos">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/_28sdp"
+                        android:layout_height="@dimen/_28sdp"
+                        android:onClick="filterDe1a3años"
+                        android:src="@drawable/ic_children_30" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:onClick="filterDe1a3años"
+                        android:text="De 1 a 3 años"
+                        android:textColor="@color/secondary_Text"
+                        android:textSize="@dimen/_10ssp" />
+
+                    <TextView
+                        android:id="@+id/de1a3AñosCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:text=""
+                        android:textColor="@color/primary_text"
+                        android:textSize="@dimen/_16ssp" />
+
+
+                </LinearLayout>
+                <!--
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_8sdp"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@id/layoutRecienNacidos"
+                                app:layout_constraintTop_toBottomOf="@id/textViews"
+                                -->
+                <EditText
+                    android:id="@+id/search_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+
+                    android:background="@drawable/search_bg"
+                    android:drawableStart="@drawable/ic_search_24"
+                    android:drawablePadding="8dp"
+                    android:hint="Buscar..."
+                    android:padding="8dp"
+                    android:textColor="@color/secondary_Text"
+                    android:textColorHint="@color/secondary_Text"
+
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:ignore="MissingConstraints"
+                    tools:layout_editor_absoluteY="18dp" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/dataContainer"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:clipToPadding="false"
+            android:overScrollMode="never"
+            android:padding="@dimen/_16sdp"
+            android:scrollbars="none"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardHeader">
+
+
+            <!--
+
+            <LinearLayout
+                android:id="@+id/linearlayoutEncuestado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <include layout="@layout/dashboard_item_1"/>
+                <include layout="@layout/dashboard_item_2"/>
+                <include layout="@layout/dashboard_item_3"/>
+                <include layout="@layout/dashboard_item_4"/>
+
+
+
+
+            </LinearLayout>
+
+            -->
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.drawerlayout.widget.DrawerLayout>
+

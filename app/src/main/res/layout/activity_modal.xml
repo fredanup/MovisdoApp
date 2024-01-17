@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:padding="10dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/layout_bg"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:padding="2dp"
+            android:src="@drawable/ic_trash_192"
+            app:tint="@color/redmuni"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="¿Desea eliminar el elemento?"
+            android:textColor="@color/textHeadline"
+            android:textSize="23dp"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:textColor="@color/textDescription"
+            android:text="La acción a punto de realizar no tiene marcha atrás y se perderán los datos"
+            android:textSize="18dp"/>
+        <Button
+            android:id="@+id/btnConfirm"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="35dp"
+            android:background="@drawable/button_style"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:elevation="8dp"
+            android:text="Confirmar"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:text="Cancelar"
+            android:textColor="@color/textDescription"
+            android:textSize="20dp"
+            android:id="@+id/textCancel"
+            android:textStyle="bold"/>
+
+
+
+    </LinearLayout>
+
+</LinearLayout>

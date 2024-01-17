@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.arsltech.developer.MovisdoApp">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_CALL_LOG"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_CALL_LOG" />
+
+    <!-- Autenticación -->
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+
+    <!-- Sincronización -->
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.DashboardUI"
+        tools:ignore="GoogleAppIndexingWarning"
+        android:usesCleartextTraffic="true">
+        <provider
+            android:authorities="com.arsltech.developer.MovisdoApp"
+            android:name=".provider.MovisdoProvider"
+            android:exported="false"/>
+        <!-- SERVICIO DE SINCRONIZACIÓN -->
+
+        <service
+            android:name="com.arsltech.developer.MovisdoApp.sync.MovisdoSyncService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.content.SyncAdapter"
+                android:resource="@xml/sync_adapter" />
+        </service>
+
+        <!-- SERVICIO DE AUTENTICACIÓN -->
+        <service android:name="com.arsltech.developer.MovisdoApp.sync.AuthenticationService">
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.accounts.AccountAuthenticator"
+                android:resource="@xml/authenticator" />
+        </service>
+        <activity
+            android:name=".activity.LoginActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="com.arsltech.developer.MovisdoApp.activity.InfanteActivity"/>
+        <activity android:name="com.arsltech.developer.MovisdoApp.activity.InfantePromotorActivity"/>
+        <activity android:name="com.arsltech.developer.MovisdoApp.activity.GestanteActivity"/>
+        <activity android:name="com.arsltech.developer.MovisdoApp.activity.VisitaGestanteActivity"/>
+        <activity android:name="com.arsltech.developer.MovisdoApp.activity.VisitaInfanteActivity"/>
+        <activity android:name="com.arsltech.developer.MovisdoApp.activity.VisitaGestanteCreateActivity"/>
+        <activity android:name="com.arsltech.developer.MovisdoApp.activity.VisitaInfanteCreateActivity"/>
+        <activity android:name="com.arsltech.developer.MovisdoApp.activity.PreguntaInfanteActivity"/>
+        <activity android:name="com.arsltech.developer.MovisdoApp.activity.PreguntaGestanteActivity"/>
+        <activity android:name="com.arsltech.developer.MovisdoApp.activity.AlternativaInfanteActivity"/>
+        <activity android:name="com.arsltech.developer.MovisdoApp.activity.MenuActivity"/>
+        <activity android:name="com.arsltech.developer.MovisdoApp.activity.LlamadaVisitaInfanteActivity"/>
+        <activity android:name="com.arsltech.developer.MovisdoApp.activity.LlamadaVisitaGestanteActivity"/>
+
+        <activity android:name="com.arsltech.developer.MovisdoApp.activity.AlternativaGestanteActivity"/>
+
+
+    </application>
+
+</manifest>

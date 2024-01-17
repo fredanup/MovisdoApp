@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:clipToPadding="false"
+    android:fitsSystemWindows="true"
+    tools:context=".activity.VisitaInfanteActivity"
+    tools:openDrawer="start">
+
+    <!--Unión de enzabezado y estructura de menú-->
+    <!--Llamamos al encabezado y a la estructura del menú-->
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+
+        app:headerLayout="@layout/header"
+        app:itemIconTint="#FFB20C"
+        app:itemTextColor="@color/textDescription"
+        app:menu="@menu/main_menu"
+
+        />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+
+        <View
+            android:id="@+id/viewHeaderBackground"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_125sdp"
+            android:background="@color/redmuni"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </View>
+
+        <!--Incluímos toolbar-->
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            app:cardBackgroundColor="@color/card_background"
+            app:cardCornerRadius="@dimen/_16sdp"
+            app:layout_constraintBottom_toBottomOf="@id/viewHeaderBackground"
+            app:layout_constraintTop_toBottomOf="@id/viewHeaderBackground"
+            >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_14sdp"
+                >
+
+                <LinearLayout
+                    android:id="@+id/layoutVisitaInfanteTotal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toStartOf="@+id/layoutVisitaInfantePresencial"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/search_bar">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:onClick="filterAll"
+                        android:layout_width="@dimen/_28sdp"
+                        android:layout_height="@dimen/_28sdp"
+                        android:src="@drawable/ic_ticket_100" />
+
+                    <TextView
+                        android:onClick="filterAll"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:text="Total"
+                        android:textColor="@color/secondary_Text"
+                        android:textSize="@dimen/_10ssp" />
+
+                    <TextView
+                        android:id="@+id/visitCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:text=""
+                        android:textColor="@color/primary_text"
+                        android:textSize="@dimen/_16ssp" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layoutVisitaInfantePresencial"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toStartOf="@id/layoutVisitaInfanteRemoto"
+                    app:layout_constraintStart_toEndOf="@id/layoutVisitaInfanteTotal"
+                    app:layout_constraintTop_toBottomOf="@+id/search_bar">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:onClick="filterLocalVisit"
+                        android:layout_width="@dimen/_28sdp"
+                        android:layout_height="@dimen/_28sdp"
+                        android:src="@drawable/ic_local_visit" />
+
+                    <TextView
+                        android:onClick="filterLocalVisit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:text="Visita presencial"
+                        android:textColor="@color/secondary_Text"
+                        android:textSize="@dimen/_10ssp" />
+
+                    <TextView
+                        android:id="@+id/localVisitCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:text=""
+                        android:textColor="@color/primary_text"
+                        android:textSize="@dimen/_16ssp" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layoutVisitaInfanteRemoto"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/layoutVisitaInfantePresencial"
+                    app:layout_constraintTop_toBottomOf="@+id/search_bar">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:onClick="filterRemoteVisit"
+                        android:layout_width="@dimen/_28sdp"
+                        android:layout_height="@dimen/_28sdp"
+                        android:src="@drawable/ic_remote_call" />
+
+                    <TextView
+                        android:onClick="filterRemoteVisit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:text="Visita remota"
+                        android:textColor="@color/secondary_Text"
+                        android:textSize="@dimen/_10ssp" />
+
+                    <TextView
+                        android:id="@+id/remoteVisitCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:text=""
+                        android:textColor="@color/primary_text"
+                        android:textSize="@dimen/_16ssp" />
+
+
+                </LinearLayout>
+                <!--
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_8sdp"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@id/layoutVisitaInfantePresencial"
+                                app:layout_constraintTop_toBottomOf="@id/textViews"
+                                -->
+                <EditText
+                    android:id="@+id/search_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+
+                    android:background="@drawable/search_bg"
+                    android:drawableStart="@drawable/ic_search_24"
+                    android:drawablePadding="8dp"
+                    android:hint="Buscar..."
+                    android:textColorHint="@color/secondary_Text"
+                    android:padding="8dp"
+                    android:textColor="@color/secondary_Text"
+
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:layout_editor_absoluteY="18dp"
+                    tools:ignore="MissingConstraints" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/dataContainer"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:clipToPadding="false"
+            android:overScrollMode="never"
+            android:padding="@dimen/_16sdp"
+            android:scrollbars="none"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardHeader">
+
+
+            <!--
+
+            <LinearLayout
+                android:id="@+id/linearlayoutEncuestado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <include layout="@layout/dashboard_item_1"/>
+                <include layout="@layout/dashboard_item_2"/>
+                <include layout="@layout/dashboard_item_3"/>
+                <include layout="@layout/dashboard_item_4"/>
+
+
+
+
+            </LinearLayout>
+
+            -->
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="30dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="@color/redmuni"
+            android:onClick="btn_add_visita_infante"
+            app:tint="@color/white"
+            android:src="@drawable/ic_add_white_24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.drawerlayout.widget.DrawerLayout>
+

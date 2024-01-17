@@ -1,0 +1,25 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+
+    <style name="Theme.DashboardUI" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+
+
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#BC352E</item>
+        <item name="colorPrimaryDark">#29323E</item>
+        <item name="colorAccent">#BC352E</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:statusBarColor">#00000000</item>
+    </style>
+    <style name="BottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/BottomSheetStyle</item>
+    </style>
+    <style name="BottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+
+
+</resources>

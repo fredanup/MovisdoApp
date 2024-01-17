@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FFB20C</color>
+    <color name="colorPrimaryDark">#DE980B</color>
+    <color name="colorAccent">#FFB20C</color>
+    <color name="textHeadline">#000000</color>
+    <color name="textDescription">#686868</color>
+    <color name="textForgotPass">#006EFD</color>
+    <color name="lightGrey">#EAEAEA</color>
+    <color name="white">#FFFFFF</color>
+    <color name="redmuni">#BC352F</color>
+    <color name="negro">#000000</color>
+    <color name="amarillo">#D0AB4E</color>
+
+    <color name="colorDivider">#ECECEC</color>
+    <color name="secondary_Text">#989A9D</color>
+    <color name="card_background">#FFFFFF</color>
+    <color name="background">#F7F7FA</color>
+    <color name="primary_text">#565865</color>
+    <color name="primary">#6A7CFF</color>
+    <color name="dashboard_item_1">#2CC2EA</color>
+    <color name="dashboard_item_2">#4DE9C9</color>
+    <color name="dashboard_item_3">#72A4FF</color>
+    <color name="dashboard_item_4">#8B72FF</color>
+
+
+
+
+</resources>
+

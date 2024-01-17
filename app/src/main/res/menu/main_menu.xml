@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+
+    <!--Estructura del menú-->
+    <item android:title="Inicio">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_parent"
+                    android:icon="@drawable/ic_parent_24"
+                    android:title="Apoderado y Gestante" />
+                <item
+                    android:id="@+id/nav_children"
+                    android:icon="@drawable/ic_child_care_24"
+                    android:title="Infantes" />
+            </group>
+        </menu>
+
+    </item>
+
+
+
+    <!--Bloque 2-->
+    <item android:title="Perfil">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_logout"
+                    android:icon="@drawable/ic_logout_24"
+                    android:title="Cerrar sesión" />
+            </group>
+
+        </menu>
+
+    </item>
+
+    <!--Bloque 3-->
+    <item android:title="Modalidad">
+        <menu>
+            <group android:checkableBehavior="single">
+
+                <item
+                    android:id="@+id/nav_offline"
+                    android:icon="@drawable/ic_offline_24"
+                    android:title="Offline"
+                    android:checkable="true"/>
+
+                <item
+                    android:id="@+id/nav_online"
+                    android:icon="@drawable/ic_online_24"
+                    android:title="Online"
+                    android:checkable="true"/>
+
+            </group>
+
+        </menu>
+
+    </item>
+
+
+</menu>

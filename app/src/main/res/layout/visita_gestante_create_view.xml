@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:background="@drawable/bottom_sheet_background"
+    android:orientation="vertical"
+    tools:context=".activity.VisitaGestanteCreateActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:padding="15dp"
+            android:text="Confirme modalidad"
+            android:textColor="#012B60"
+            android:textSize="@dimen/_17ssp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_10ssp"
+        app:cardCornerRadius="@dimen/_14sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:orientation="vertical">
+
+            <Switch
+                android:id="@+id/sw_mod_visita"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:hint="@string/presencial_remoto"
+                android:onClick="btn_visita"
+                android:textColor="#3399FF"
+                android:textColorHint="@color/textDescription"
+                android:textSize="17sp"
+                android:layout_marginLeft="@dimen/_5ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageLocation"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+
+            <TextView
+                android:id="@+id/tv_fecha_actual"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:text="@string/fecha_actual"
+                android:textColor="#3399FF"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintEnd_toEndOf="@+id/sw_mod_visita"
+                app:layout_constraintTop_toTopOf="@+id/textFechaActual" />
+
+            <TextView
+                android:id="@+id/tv_latitud"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:text="@string/latitud"
+                android:textColor="#3399FF"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintEnd_toEndOf="@+id/sw_mod_visita"
+                app:layout_constraintTop_toTopOf="@+id/textLatitud" />
+
+            <TextView
+                android:id="@+id/tv_longitud"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:text="@string/longitud"
+                android:textColor="#3399FF"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintEnd_toEndOf="@+id/sw_mod_visita"
+                app:layout_constraintTop_toTopOf="@+id/textLongitud" />
+
+            <Button
+                android:id="@+id/btn_save"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_35ssp"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/button_background"
+                android:backgroundTint="#499C54"
+                android:onClick="btn_save"
+                android:padding="5dp"
+                android:text="Guardar"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/_14ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textLongitud" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageLocation"
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:src="@drawable/ic_location_24"
+                app:layout_constraintBottom_toBottomOf="@+id/sw_mod_visita"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="#D61277"
+                tools:ignore="MissingConstraints" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/dateLocation"
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:src="@drawable/ic_date_50"
+
+                app:layout_constraintBottom_toBottomOf="@+id/textFechaActual"
+                app:layout_constraintTop_toTopOf="@+id/textFechaActual"
+                app:tint="#D61277"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="0dp" />
+
+            <TextView
+                android:id="@+id/textFechaActual"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/fecha_actual_label"
+                android:textColor="@color/textDescription"
+                android:textSize="17sp"
+                android:layout_marginLeft="@dimen/_5ssp"
+                app:layout_constraintStart_toEndOf="@+id/dateLocation"
+                app:layout_constraintTop_toBottomOf="@+id/sw_mod_visita"
+                tools:ignore="MissingConstraints" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/latitudLocation"
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:src="@drawable/ic_latitude"
+                app:layout_constraintBottom_toBottomOf="@+id/textLatitud"
+                app:layout_constraintTop_toTopOf="@+id/textLatitud"
+                app:tint="#D61277"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="0dp" />
+
+            <TextView
+                android:id="@+id/textLatitud"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/latitud_label"
+                android:layout_marginLeft="@dimen/_5ssp"
+                android:textColor="@color/textDescription"
+                android:textSize="17sp"
+                app:layout_constraintStart_toEndOf="@+id/latitudLocation"
+                app:layout_constraintTop_toBottomOf="@+id/textFechaActual"
+                tools:ignore="MissingConstraints" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/longitudLocation"
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:src="@drawable/ic_longitude"
+
+                app:layout_constraintBottom_toBottomOf="@+id/textLongitud"
+                app:layout_constraintTop_toTopOf="@+id/textLongitud"
+                app:tint="#D61277"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="0dp" />
+
+            <TextView
+                android:id="@+id/textLongitud"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/longitud_label"
+                android:textColor="@color/textDescription"
+                android:textSize="17sp"
+                android:layout_marginLeft="@dimen/_5ssp"
+                app:layout_constraintStart_toEndOf="@+id/longitudLocation"
+                app:layout_constraintTop_toBottomOf="@+id/textLatitud"
+                tools:ignore="MissingConstraints" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+
+
+
+</LinearLayout>
